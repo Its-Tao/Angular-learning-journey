@@ -28,8 +28,11 @@ export class StudentList implements OnInit {
   deleteStudent(id: number): void {
     if (confirm('Are you sure you want to delete this student?')) {
       this.studentService.deleteStudent(id);
-      this.loadStudents(); // Refresh the list
+      this.loadStudents(); 
     }
+  }
+  editStudent(student:Student):void {
+    this.studentService.setStudentToEdit(student);
   }
 }
 

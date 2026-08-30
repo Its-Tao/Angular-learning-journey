@@ -45,6 +45,8 @@ export class StudentService {
     },
   ];
 
+  private studentToEdit: Student | null = null;
+
   getStudents(): Student[] {
     return this.students;
   }
@@ -63,15 +65,27 @@ export class StudentService {
   }
 
   deleteStudent(id: number): void {
-  this.students = this.students.filter(student => student.id !== id);
-}
+    this.students = this.students.filter((student) => student.id !== id);
+  }
 
-updateStudent(updatedStudent: Student): void {
-  const index = this.students.findIndex(s => s.id === updatedStudent.id);
-  if (index !== -1) {
-    this.students[index] = updatedStudent;
+  updateStudent(updatedStudent: Student): void {
+    const index = this.students.findIndex((s) => s.id === updatedStudent.id);
+    if (index !== -1) {
+      this.students[index] = updatedStudent;
+    }
+  }
+
+  setStudentToEdit(student: Student): void {
+    this.studentToEdit = { ...student };
+  }
+
+  getStudentToEdit(): Student | null {
+    return this.studentToEdit;
+  }
+
+  clearStudentToEdit(): void {
+    this.studentToEdit = null;
   }
 }
-  }
 
 
