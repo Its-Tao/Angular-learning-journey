@@ -8,23 +8,22 @@ import { Student } from '../models/student';
 export class StudentService {
   private students: Student[] = [
     {
-       id: 1,
-    firstName:'taofina',
-    lastName:'george',
-    email:'taofinanaswabu@gmail.com',
-    course:'SE',
-    age:34,
-    status:'active',
+      id: 1,
+      firstName: 'taofina',
+      lastName: 'george',
+      email: 'taofinanaswabu@gmail.com',
+      course: 'SE',
+      age: 34,
+      status: 'active',
     },
     {
-
-    id: 2,
+      id: 2,
       firstName: 'Jane',
       lastName: 'Smith',
       email: 'jane.smith@email.com',
       course: 'Information Technology',
-      age:20,
-      status: 'active'
+      age: 20,
+      status: 'active',
     },
     {
       id: 3,
@@ -32,8 +31,8 @@ export class StudentService {
       lastName: 'Johnson',
       email: 'michael.j@email.com',
       course: 'Software Engineering',
-      age:50,
-      status: 'active'
+      age: 50,
+      status: 'active',
     },
     {
       id: 4,
@@ -41,9 +40,9 @@ export class StudentService {
       lastName: 'Williams',
       email: 'sarah.w@email.com',
       course: 'Data Science',
-      age:40,
-      status: 'inactive'
-    }
+      age: 40,
+      status: 'inactive',
+    },
   ];
 
   getStudents(): Student[] {
@@ -51,7 +50,16 @@ export class StudentService {
   }
 
   getStudentById(id: number): Student | undefined {
-    return this.students.find(student => student.id === id);
+    return this.students.find((student) => student.id === id);
+  }
+
+  addStudent(student: Student): void {
+    const newId = this.students.length > 0 ? Math.max(...this.students.map((s) => s.id)) + 1 : 1;
+
+    this.students.push({
+      ...student,
+      id: newId,
+    });
   }
 }
 

@@ -1,1 +1,51 @@
-<p>student-form works!</p>
+<div style="padding: 20px; max-width: 500px;">
+  <h2>Add New Student</h2>
+
+  <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+
+    <div style="margin-bottom: 15px;">
+      <label>First Name:</label><br>
+      <input type="text" name="firstName" [(ngModel)]="student.firstName" required
+             style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Last Name:</label><br>
+      <input type="text" name="lastName" [(ngModel)]="student.lastName" required
+             style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Email:</label><br>
+      <input type="email" name="email" [(ngModel)]="student.email" required
+             style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Age:</label><br>
+      <input type="number" name="age" [(ngModel)]="student.age" required
+             style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Course:</label><br>
+      <input type="text" name="course" [(ngModel)]="student.course" required
+             style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Status:</label><br>
+      <select name="status" [(ngModel)]="student.status"
+              style="width: 100%; padding: 8px;">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Graduated">Graduated</option>
+      </select>
+    </div>
+
+    <button type="submit"
+            style="background-color: #3f51b5; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+      Add Student
+    </button>
+  </form>
+</div>
