@@ -7,7 +7,7 @@ import { StudentForm } from './components/student-form/student-form';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Navbar, RouterOutlet, StudentList, StudentForm],
+  imports: [Navbar, StudentList, StudentForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

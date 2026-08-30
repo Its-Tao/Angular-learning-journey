@@ -6,18 +6,30 @@ import { StudentService } from '../../services/student';
 
 @Component({
   selector: 'app-student-list',
-  standalone:true,
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './student-list.html',
   styleUrl: './student-list.css',
 })
 export class StudentList implements OnInit {
-  students: Student[]=[];
+  students: Student[] = [];
 
-  constructor( private studentService:StudentService) {}
+  constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
+    this.loadStudents();
+  }
+  
+  loadStudents(): void {
     this.students = this.studentService.getStudents();
+
+  }
+
+  deleteStudent(id: number): void {
+    if (confirm('Are you sure you want to delete this student?')) {
+      this.studentService.deleteStudent(id);
+      this.loadStudents(); // Refresh the list
+    }
   }
 }
 

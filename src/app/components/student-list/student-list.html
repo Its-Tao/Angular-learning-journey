@@ -25,6 +25,13 @@
           <td>{{ student.age}}</td>
           <td>{{ student.course }}</td>
           <td>{{ student.status }}</td>
+          <td>
+            <button
+              (click)="deleteStudent(student.id)"
+              style="background-color: #f44336; color: white; border: none; padding: 6px 12px; cursor: pointer;">
+              Delete
+            </button>
+          </td>
         </tr>
       }
     </tbody>
