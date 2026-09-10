@@ -96,7 +96,13 @@ export class StudentService {
   getStudentsFromApi() {
     return this.http.get<Student[]>(this.url);
   }
-  
+
+
+  //add student to api
+  addStudentToApi(student: Student) {
+    return this.http.post<Student>(this.url,student);
+  }
+
 }
 
 
