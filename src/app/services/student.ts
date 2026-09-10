@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../models/student';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentService {
+
+  constructor(private http: HttpClient) {
+  }
+  private url = 'http://jsonplaceholder.typicode.com/users';
   private students: Student[] = [
     {
       id: 1,
@@ -86,6 +91,12 @@ export class StudentService {
   clearStudentToEdit(): void {
     this.studentToEdit = null;
   }
+
+  //get student from api
+  getStudentsFromApi() {
+    return this.http.get<Student[]>(this.url);
+  }
+  
 }
 
 

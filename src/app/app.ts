@@ -3,11 +3,12 @@ import {Navbar} from './components/navbar/navbar';
 import { RouterOutlet } from '@angular/router';
 import { StudentList } from './components/student-list/student-list';
 import { StudentForm } from './components/student-form/student-form';
+import { Student } from './student/student';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Navbar, StudentList, StudentForm],
+  imports: [Navbar, StudentList, StudentForm, Student],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
