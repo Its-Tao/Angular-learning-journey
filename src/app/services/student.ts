@@ -103,6 +103,14 @@ export class StudentService {
     return this.http.post<Student>(this.url,student);
   }
 
+  //delete student from api
+  deleteStudentFromApi(id:number) {
+    return this.http.delete(`${this.url}/${id}`);
+
+    
+    
+  }
+
 }
 
 
